@@ -12,8 +12,23 @@ class Personnage{
     public function afficheExperience(){
         echo $this->_experience;
     }
+
+    public function gagnerExperience(){
+        $this->_experience = $this->_experience + 1;
+    }
 }
 
 $perso = new Personnage;
 $perso->parler();
+echo '<hr>';
 $perso->afficheExperience();
+echo '<hr>';
+$perso->gagnerExperience();
+$perso->afficheExperience();
+echo '<hr>';
+$perso->gagnerExperience();
+$perso->afficheExperience();
+echo '<hr>';
+$perso2 = new Personnage;
+$perso2->afficheExperience();
+
