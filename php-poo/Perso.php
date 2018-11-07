@@ -24,8 +24,46 @@ class Perso{
     public function getForce(){
         return $this->_force;
     }
+
+    public function setForce($force){
+        if(!is_int($force)){
+            trigger_error('La force d\'un personnage doit être un entier', E_USER_WARNING);
+            return;
+        }
+
+        if($force > 100){
+            trigger_error('La force d\'un personnage ne peut pas depasser 100', E_USER_WARNING);
+            return;
+        }
+
+        if($force < 0){
+            trigger_error('La force d\'un personnage ne peut pas être négatif', E_USER_WARNING);
+            return;
+        }
+
+        $this->_force = $force;
+    }
+
+    public function setExperience($exp){
+        if(!is_int($exp)){
+            trigger_error('L\' éxperience d\'un personnage doit être un entier', E_USER_WARNING);
+            return;
+        }
+
+        if($exp > 100){
+            trigger_error('L\' éxperience' d\'un personnage ne peut pas depasser 100', E_USER_WARNING);
+            return;
+        }
+
+        if($exp < 0){
+            trigger_error('L\' éxperience' d\'un personnage ne peut pas être négatif', E_USER_WARNING);
+            return;
+        }
+
+        $this->_experience = $exp;
+    }
 }
-$perso1 = new Perso;
+/*$perso1 = new Perso;
 var_dump($perso1);
 echo '<hr>';
 $perso2 = new Perso;
@@ -40,3 +78,8 @@ $perso2->gagnerExperience();
 var_dump($perso1);
 echo '<hr>';
 var_dump($perso2);
+*/
+$perso1 = new Perso;
+echo "La force du perso 1 est de " . $perso1->getForce();
+echo "Les dégats du perso un est de " . $perso1->getDegat();
+echo "L'éxperience du perso 1 est de " . $perso1->getExperience();
