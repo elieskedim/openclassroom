@@ -9,12 +9,16 @@ class Personnage{
         echo "Je suis un personnage !";
     }
 
+    public static function crier(){
+        echo "Lerroooyyyyy Jeennkkiinnsssss !!!!!";
+    }
+
     public function afficheExperience(){
         echo $this->_experience;
     }
 
     public function gagnerExperience(){
-        $this->_experience = $this->_experience + 1;
+        $this->_experience++;
     }
 }
 
@@ -31,4 +35,6 @@ $perso->afficheExperience();
 echo '<hr>';
 $perso2 = new Personnage;
 $perso2->afficheExperience();
+echo '<hr>';
+Personnage::crier();
 
