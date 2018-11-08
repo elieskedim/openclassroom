@@ -22,7 +22,7 @@ class Personnage{
     }
 }
 
-$perso = new Personnage;
+/*$perso = new Personnage;
 $perso->parler();
 echo '<hr>';
 $perso->afficheExperience();
@@ -37,4 +37,4 @@ $perso2 = new Personnage;
 $perso2->afficheExperience();
 echo '<hr>';
 Personnage::crier();
-
+*/
