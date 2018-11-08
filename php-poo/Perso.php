@@ -1,9 +1,24 @@
 <?php
+/******************************************** Autoloader **********************************
+function charger($classe){
+    require $classe . '.php';
+}
+spl_autoload_register('charger');
+$personnage = new Personnage;
+**/
 class Perso{
-    private $_degat = 0; //Les degats du personnage 
-    private $_experience = 0; // L'éxperience du personnage 
-    private $_force = 20; //  La force du personnage (plus elle est grande, plus l'attaque est puissante).
+    private $_degat; //Les degats du personnage 
+    private $_experience; // L'éxperience du personnage 
+    private $_force; //  La force du personnage (plus elle est grande, plus l'attaque est puissante).
 
+
+    public function __construct($force, $degat){
+        if (is_numeric($force) && is_numeric($degat)) {
+            $this->_degat = $degat;
+            $this->_force = $force;
+            $this->_experience = 1;
+        }
+    }
     public function gagnerExperience(){
         //On ajout 1 à notre attribut experience
         $this->_experience++;
@@ -51,12 +66,12 @@ class Perso{
         }
 
         if($exp > 100){
-            trigger_error('L\' éxperience' d\'un personnage ne peut pas depasser 100', E_USER_WARNING);
+            trigger_error('L\' éxperience d\'un personnage ne peut pas depasser 100', E_USER_WARNING);
             return;
         }
 
         if($exp < 0){
-            trigger_error('L\' éxperience' d\'un personnage ne peut pas être négatif', E_USER_WARNING);
+            trigger_error('L\' éxperience d\'un personnage ne peut pas être négatif', E_USER_WARNING);
             return;
         }
 
@@ -79,7 +94,7 @@ var_dump($perso1);
 echo '<hr>';
 var_dump($perso2);
 */
-$perso1 = new Perso;
-echo "La force du perso 1 est de " . $perso1->getForce();
-echo "Les dégats du perso un est de " . $perso1->getDegat();
-echo "L'éxperience du perso 1 est de " . $perso1->getExperience();
+$perso1 = new Perso('350', 45);
+echo "La force du perso 1 est de " . $perso1->getForce() . '<br>';
+echo "Les dégats du perso 1 un est de " . $perso1->getDegat() . '<br>';
+echo "L'éxperience du perso 1 est de " . $perso1->getExperience() . '<br>';
