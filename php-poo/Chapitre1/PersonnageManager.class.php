@@ -22,6 +22,11 @@ class PersonnagesManager
     $q->execute();
 
     var_dump($perso->getNom());
+    $perso->hydrate([
+      'id' => $this->_db->lastInsertId(),
+      'degats' => 0,
+      'atout' => 0
+    ]);
     
   }
 
